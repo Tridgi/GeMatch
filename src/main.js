@@ -244,7 +244,7 @@ function handleAction(action,element){
     case "dismiss":state.notice="";break;
     case "home":state.screen="menu";state.notice="";break;
     case "new-run":state.run=createRun();state.combat=null;state.screen="map";state.notice="Забег начался. Выбери первый узел.";break;
-    case "resume":state.screen=r?(c?"battle":"map"):"menu";break;
+    case "resume":{if(!r){state.screen="menu";break;}if(c){state.screen="battle";break;}if(r.currentNode){const n=r.map.find(v=>v.id===r.currentNode);state.screen=n?.type==="treasure"?"reward":n?.type==="rest"?"camp":n?.type==="event"?"event":n?.type==="lab"?"lab":n?.type==="shop"?"shop":"map";}else state.screen="map";break;}
     case "map":if(r&&!r.currentNode){state.screen="map";state.notice="";}break;
     case "book":state.returnScreen=state.screen;state.screen="book";break;
     case "back":state.screen=state.returnScreen||"menu";break;
