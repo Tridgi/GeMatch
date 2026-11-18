@@ -1,0 +1,432 @@
+/*
+  GeMatch art direction v2.
+  All image references resolve relative to src/ and are shipped from assets/v2/.
+  Generated art is separated from live text and controls for legibility/accessibility.
+*/
+:root {
+  --night:#070e1b;
+  --ink:#0d1828;
+  --panel:#172236;
+  --panel2:#172e39;
+  --edge:#f1bb68;
+  --gold:#ffe0a0;
+  --teal:#6afce8;
+  --violet:#bba0fb;
+  --copy:#fff3d8;
+  --muted:#d0d5da;
+  --shadow:0 26px 70px rgba(0,0,0,.65);
+}
+body {
+  background:
+    radial-gradient(ellipse at 32% 17%,rgba(78,64,151,.35),transparent 49%),
+    radial-gradient(ellipse at 84% 80%,rgba(13,115,105,.22),transparent 48%),
+    #050d19;
+}
+.world-glow {
+  background:
+    radial-gradient(ellipse at 30% 65%,rgba(164,82,183,.09),transparent 43%),
+    repeating-linear-gradient(120deg,transparent 0 115px,rgba(255,217,154,.013) 117px);
+}
+#app{background:linear-gradient(180deg,#050e1a90,#0e11204a);isolation:isolate;}
+.topbar {
+  background:linear-gradient(180deg,rgba(7,16,29,.99),rgba(9,21,32,.96));
+  border-bottom:2px solid #c68a4e;
+  box-shadow:0 5px 36px rgba(5,5,15,.8);
+  min-height:78px;
+}
+.brand strong{font-size:1.65rem;color:#ffdf98;text-shadow:0 0 16px rgba(245,170,65,.5)}
+.brand-icon {
+  display:block;width:47px;height:47px;font-size:0;
+  background:url("../assets/v2/item-sheet.avif") 0 0 / 400% 200% no-repeat;
+  filter:drop-shadow(0 0 11px #4ffff2aa);
+}
+.breadcrumb{color:#f2d2a4;font-size:1rem;letter-spacing:.025em}
+.stats span,.pill {
+  border:1px solid #bd925a;
+  background:linear-gradient(125deg,#0a1a2bf2,#20394af2);
+  box-shadow:inset 0 1px #d9a66b2e,0 2px 8px #0009;
+  color:#ffebba;
+}
+.header-actions .btn{border-color:#d3a667;background:linear-gradient(115deg,#1b3f44,#0b1c2d);color:#eaffee}
+.footer{background:linear-gradient(90deg,#091222,#13232f);border-top-color:#bd87567d}
+.panel {
+  background:linear-gradient(145deg,rgba(19,33,50,.97),rgba(11,20,37,.97));
+  border:1px solid #a6804f;
+  box-shadow:0 20px 56px #0009,inset 0 0 0 3px #d8a9700f;
+}
+.panel:before{border:1px solid rgba(247,202,128,.16)}
+.section-heading h1{color:#ffdfa1;text-shadow:0 3px 11px #000,0 0 26px #c9844645}
+.section-heading p{color:#e4ddcc}
+.btn {
+  background:linear-gradient(160deg,#1b364a 3%,#102130 65%,#09202a);
+  color:#fff0d1;
+  border:1px solid #b88b5c;
+  border-bottom-width:2px;
+  border-radius:9px;
+  box-shadow:inset 0 1px #fff5d029,0 3px 12px #0009;
+  text-shadow:0 2px 3px #000b;
+}
+.btn-primary {
+  background:linear-gradient(125deg,#128f90,#0ca997 53%,#086d76);
+  border-color:#9affeb;
+  color:#fff4dc;
+  box-shadow:inset 0 1px #bdfff9b3,0 0 23px #18bca86c,0 4px 18px #0009;
+}
+.btn-primary:not(:disabled):hover{box-shadow:0 0 27px #2affda9b,0 9px 25px #000b}
+.btn-outline{background:linear-gradient(140deg,#3a3150,#161f34 60%);border-color:#d8a362}
+.btn:active:not(:disabled){transform:translateY(1px) scale(.99)}
+.ribbon{color:#92ffee;text-shadow:0 0 15px #00fae97b}
+
+/* All characters and objects have separate transparent high-detail sources.
+   The old 4x3 low-res atlas is retained as fallback for unfamiliar elements. */
+.sprite {
+  background-image:url("../assets/v2/item-sheet.avif");
+  background-size:400% 200%;
+  background-repeat:no-repeat;
+  filter:drop-shadow(0 8px 12px #01080ac0);
+}
+.sprite.sprite-hero{background-image:url("../assets/v2/hero-idle.avif");background-size:contain!important;background-position:center bottom!important}
+.sprite.sprite-mushroom{background-image:url("../assets/v2/enemy-mushroom.avif");background-size:contain!important;background-position:center bottom!important}
+.sprite.sprite-slime{background-image:url("../assets/v2/enemy-slime.avif");background-size:contain!important;background-position:center bottom!important}
+.sprite.sprite-golem{background-image:url("../assets/v2/enemy-boss.avif");background-size:contain!important;background-position:center bottom!important}
+.sprite.sprite-potion-heal{background-position:0% 0%}
+.sprite.sprite-potion-fire{background-position:33.333% 0%}
+.sprite.sprite-potion-ice{background-position:66.667% 0%}
+.sprite.sprite-potion-poison{background-position:100% 0%}
+.sprite.sprite-herb{background-position:0% 100%}
+.sprite.sprite-crystal{background-position:33.333% 100%}
+.sprite.sprite-chest{background-position:100% 100%}
+.sprite.sprite-book {background-image:url("../assets/v2/icon-sheet.avif");background-size:400% 300%;background-position:0% 50%}
+.portrait-row .sprite{width:74px;height:87px;background-color:transparent}
+.inventory-line .sprite{width:50px;height:55px;flex-shrink:0}
+
+/* Title / menu */
+.menu-screen{
+  grid-template-columns:minmax(430px,.95fr) minmax(300px,1.05fr);
+  align-items:center;
+  min-height:calc(100vh - 174px);
+  background-image:
+    linear-gradient(90deg,rgba(7,12,25,.95) 0%,rgba(7,15,28,.87) 32%,rgba(12,22,32,.22) 66%,rgba(5,16,27,.24) 100%),
+    url("../assets/v2/bg-menu.avif");
+  background-size:cover;
+  background-position:center center;
+  border:2px solid #ae8154;
+  box-shadow:0 20px 80px #000c,inset 0 0 0 6px rgba(239,179,94,.08);
+  padding:48px clamp(27px,5vw,75px);
+}
+.menu-screen:after{opacity:.15;pointer-events:none}
+.menu-copy{max-width:640px}
+.menu-copy .ribbon{display:inline-flex;background:#123940b8;border:1px solid #71d6c7;border-radius:999px;padding:10px 16px;color:#a7fff2}
+.menu-logo {
+  display:block;width:min(600px,96%);max-height:210px;object-fit:contain;
+  object-position:left center;margin:10px 0 -13px -16px;
+  filter:drop-shadow(0 8px 22px #000a);
+}
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.menu-copy h2{font-size:clamp(2rem,3.3vw,3.4rem);color:#ffe8b4;text-shadow:0 2px 12px #000c}
+.menu-copy>p{
+  background:linear-gradient(90deg,rgba(4,14,28,.7),rgba(4,15,25,.15));
+  border-radius:6px;
+  color:#eff2e9;
+  font-size:clamp(.96rem,1.05vw,1.06rem);
+  line-height:1.74;
+  text-shadow:0 2px 5px #000;
+}
+.menu-buttons .btn{font-family:Georgia,serif;font-size:1.19rem;letter-spacing:.005em}
+.menu-buttons{max-width:400px;gap:11px}
+.menu-buttons .btn-primary{padding:17px 24px;position:relative}
+.menu-metrics{max-width:550px;gap:28px;border-top:1px solid #e7bb8269}
+.menu-metrics strong{font-size:2.1rem;text-shadow:0 0 16px #e8ac5f69}
+.menu-metrics small{color:#ebdcbf}
+.menu-illustration{min-height:530px;height:100%;position:relative;pointer-events:none;align-items:end}
+.magic-orbit{opacity:.65;border-color:#78fae7;box-shadow:0 0 50px #20ffe16b,inset 0 0 40px #3ce0db38}
+.orbit-one{width:min(34vw,520px);height:min(34vw,520px);bottom:12%}
+.orbit-two{width:min(27vw,420px);height:min(27vw,420px);bottom:19%;border-color:#d7acffb0}
+.menu-character {
+  position:absolute;inset:0;display:flex;
+  align-items:flex-end;justify-content:center;transform:none;
+}
+.menu-character .sprite.sprite-hero{
+  display:block;
+  width:min(35vw,490px);
+  height:min(49vw,625px);
+  min-height:460px;
+  background-image:url("../assets/v2/hero-cast.avif");
+  background-size:contain!important;
+  background-position:center bottom!important;
+  transform:none;
+  filter:drop-shadow(0 17px 20px #031222dd) drop-shadow(0 0 23px #9569d067);
+}
+.menu-flasks{display:none}
+.star{color:#d7b4ff;text-shadow:0 0 20px #fdcf86}
+
+/* Route map: the map is an actual scene, while selectable nodes remain real buttons. */
+.map-panel{padding:26px;background:linear-gradient(170deg,#121a31,#101d2b)}
+.route-map {
+  min-height:500px;
+  background-image:
+    linear-gradient(180deg,#0d1c3069,#03112669 83%),
+    url("../assets/v2/bg-map.avif");
+  background-position:center;
+  background-size:cover;
+  border:2px solid #c2a16d;
+  box-shadow:inset 0 0 80px #000b,0 16px 40px #0007;
+}
+.route-map:before {border:1px solid #e1be837a;inset:12px}
+.route-map svg{z-index:1;filter:drop-shadow(0 0 5px #28f0e6)}
+.route-map path{stroke:#f5e9b7;stroke-dasharray:1.2 1;stroke-width:3.2}
+.map-decor{display:none}
+.map-node{
+  z-index:3;
+  width:62px;height:62px;border:2px solid #e0bc6c;border-radius:50%;
+  background:radial-gradient(circle at 35% 20%,#28505f,#0d192b 70%);
+  box-shadow:inset 0 0 0 3px #f3c77c36,0 4px 18px #000c;
+}
+.map-node>span{font-size:0}
+.map-node:after{
+  content:"";display:block;width:79%;height:79%;
+  background-image:url("../assets/v2/icon-sheet.avif");
+  background-size:400% 300%;
+  background-position:50% 50%;
+  filter:drop-shadow(0 0 8px #3fead7a0);
+}
+.map-node.battle:after{background-position:66.667% 50%}
+.map-node.elite:after,.map-node.boss:after{background-position:100% 50%}
+.map-node.event:after{background-position:0% 100%}
+.map-node.lab:after{background-position:33.333% 100%}
+.map-node.treasure:after{background-position:66.667% 100%}
+.map-node.rest:after{background-position:100% 100%}
+.map-node.shop:after{background-position:100% 0%}
+.map-node.available{box-shadow:inset 0 0 0 3px #78ffdf84,0 0 0 7px #5eeec545,0 0 29px #5cffd6b8;border-color:#82ffe2}
+.map-node.done{background:radial-gradient(#245950,#101f2a)}
+.map-node:disabled{opacity:.74}
+.map-node:disabled:after{filter:grayscale(.3) brightness(.77)}
+.route-start{background:#153f45;border-color:#8cfff0}
+.node-legend span{background:#102734;color:#fae5c1;border-color:#cfa77588}
+.map-hint{color:#c1f8ed;font-weight:700}
+
+/* Combat: characters now have their own detail-preserving sprite portraits. */
+.battle-stage{
+  height:455px;
+  background-image:
+    linear-gradient(180deg,rgba(1,12,22,.45) 0%,transparent 36%,rgba(3,12,17,.62) 95%),
+    url("../assets/v2/bg-battle.avif");
+  background-size:cover;background-position:center 53%;
+  border:2px solid #bd9968;
+  box-shadow:inset 0 0 65px #010713b5,0 12px 35px #0009;
+}
+.battle-stage:before{background:none}
+.battle-title h2{color:#ffde9d;text-shadow:0 3px 6px #000,0 0 22px #b8834f}
+.battle-title p{color:#f5e5d3;text-shadow:0 2px 7px #000}
+.fighters{height:325px;bottom:7px;align-items:end}
+.fighter{width:300px}
+.fighter .sprite{
+  width:min(20vw,280px);
+  height:270px;
+  min-width:170px;
+  background-color:transparent;
+  background-size:contain!important;
+  background-position:center bottom!important;
+  border-radius:0;
+  filter:drop-shadow(0 10px 13px #000c) drop-shadow(0 0 7px #a57af969)
+}
+.enemy-fighter .sprite{filter:drop-shadow(0 10px 12px #000c) drop-shadow(0 0 11px #e6a2668f)}
+.fighter h3{font-size:1.65rem;color:#ffe0a0;text-shadow:0 2px 7px #000}
+.fighter .progress{width:85%;height:13px;border-color:#c99c6a}
+.fighter>span:last-child{color:#fff2c6;font-weight:700;text-shadow:0 2px 5px #000}
+.versus{align-self:center;font-size:2.4rem;color:#ffdaa4;text-shadow:0 0 15px #000}
+.battle-primary,.combat-aside>.panel{
+  background:linear-gradient(160deg,#111c35,#0a2033 68%,#101d2e);
+  border-color:#c49861;
+  box-shadow:inset 0 0 0 2px #ad8e4f20,0 12px 30px #0008;
+}
+.formula-display{
+  background:radial-gradient(ellipse at 80% 50%,#194d60,#0a1729);
+  border:1px solid #5ce4dc;
+  box-shadow:inset 0 0 24px #0bb8ba27;
+}
+.formula-display strong{color:#ffe3a2;font-size:clamp(1.1rem,2vw,1.85rem)}
+.math-card{
+  position:relative;
+  isolation:isolate;
+  background:linear-gradient(145deg,#fbdfaa,#c69b5e);
+  border:2px solid #f6d696;
+  border-radius:13px;
+  color:#171b2a;
+  box-shadow:inset 0 0 0 3px #ffffff33,0 9px 15px #000b;
+  transition:transform .2s,box-shadow .2s;
+}
+.math-card:before{
+  content:"";position:absolute;inset:3px;z-index:-1;pointer-events:none;
+  background-image:url("../assets/v2/ui-sheet.avif");
+  background-size:400% 200%;
+  background-position:0% 100%;
+  border-radius:9px;opacity:.16;
+}
+.math-card .card-symbol{font-size:2.55rem;color:#231e4f;text-shadow:0 1px 2px #fff6b4}
+.math-card strong{font-size:.77rem}
+.math-card small{font-size:.67rem;color:#302a31;opacity:.92}
+.math-card.operator{background:linear-gradient(150deg,#caadf3,#7555a2);color:#fff3dc;border-color:#e5b9ff}
+.math-card.operator .card-symbol{color:#fff9db}
+.math-card.spell-fire{background:linear-gradient(155deg,#ffcc8d,#b74a31);border-color:#ffe1a3}
+.math-card.spell-ice{background:linear-gradient(155deg,#c7f8ff,#3b7bb5);border-color:#c9f7ff}
+.math-card.spell-guard{background:linear-gradient(155deg,#dcf9e3,#3b969e);border-color:#d9fff3}
+.math-card.spell-heal{background:linear-gradient(155deg,#c5f3ab,#42965c);border-color:#e5ffb5}
+.math-card.spell-fire .card-symbol,
+.math-card.spell-ice .card-symbol,
+.math-card.spell-guard .card-symbol,
+.math-card.spell-heal .card-symbol{
+  display:block;font-size:0;width:73px;height:78px;
+  background-image:url("../assets/v2/item-sheet.avif");
+  background-repeat:no-repeat;background-size:400% 200%;
+}
+.math-card.spell-fire .card-symbol{background-position:33.333% 0%}
+.math-card.spell-ice .card-symbol,.math-card.spell-guard .card-symbol{background-position:66.667% 0%}
+.math-card.spell-heal .card-symbol{background-position:0% 0%}
+.math-card.selected{transform:translateY(-17px) scale(1.045);border-color:#b3fff6;box-shadow:0 0 0 3px #2ffff0aa,0 10px 28px #23ffda88}
+.btn-potion{background:linear-gradient(100deg,#203b4c,#131e31);border-color:#b99b6a}
+.puzzle-modal{
+  border:3px solid #e0b57c;
+  background:linear-gradient(145deg,#25364b,#0a1930);
+  box-shadow:0 0 0 7px #c8985b22,0 25px 90px #000e;
+}
+.puzzle-modal .equation{background:radial-gradient(circle,#174f61,#102039);border-color:#79f0de}
+.puzzle-modal label{color:#f6debd}
+
+/* Alchemy, events, rewards and codex have authored atmosphere */
+.lab-screen{
+  background-image:
+    linear-gradient(180deg,rgba(12,20,37,.87),rgba(9,16,32,.94)),
+    url("../assets/v2/bg-lab.avif");
+  background-size:cover;
+}
+.cauldron-scene{
+  min-height:570px;
+  background-image:url("../assets/v2/bg-menu.avif");
+  background-size:cover;
+  background-position:center;
+  border:2px solid #d8a36b;
+  box-shadow:inset 0 0 65px #0009,0 9px 26px #0009;
+}
+.cauldron-scene:after{
+  content:"";position:absolute;inset:auto 10% 0;height:140px;
+  background:radial-gradient(ellipse,#7dfbba4b,transparent 70%);
+  pointer-events:none;
+}
+.cauldron,.cauldron-glow{display:none}
+.cauldron-label{
+  position:absolute;bottom:20px;z-index:2;color:#ffeecc;
+  padding:11px 18px;border:1px solid #e6c68b;
+  background:#08242fc9;border-radius:9px;
+  text-shadow:0 0 12px #4aebc5;
+}
+.lab-controls,.event-controls{
+  background:linear-gradient(160deg,rgba(10,26,43,.93),rgba(7,21,33,.94));
+  border:1px solid #d9ae73;border-radius:12px;padding:22px;
+  box-shadow:0 12px 30px #0008;
+}
+.lab-controls h3,.event-controls h3{color:#ffdd9c}
+.recipe-choice {
+  min-height:70px;
+  background:linear-gradient(#28384d,#111c34);
+  border:1px solid #b69770;color:#fae8d0;
+  border-radius:8px;
+}
+.recipe-choice.active{background:linear-gradient(#0d868a,#105153);border-color:#84ffe7}
+.brew-equation{background:#101b30;border-color:#b89868;box-shadow:inset 0 0 20px #0004}
+.event-screen{
+  background-image:linear-gradient(rgba(7,16,35,.88),rgba(7,13,27,.94)),url("../assets/v2/bg-map.avif");
+  background-size:cover;
+}
+.fog-art {
+  background-image:linear-gradient(#284b4b65,#0b2c27ab),url("../assets/v2/bg-map.avif");
+  background-position:center;background-size:cover;
+  border:2px solid #ae9767;box-shadow:inset 0 0 60px #124a3db4;
+}
+.fog-art>div{text-shadow:0 0 38px #94fc98}
+.reward-panel{
+  background-image:
+    linear-gradient(180deg,rgba(12,22,40,.86),rgba(11,21,40,.95)),
+    url("../assets/v2/bg-map.avif");
+  background-size:cover;
+}
+.reward-wrap .math-card{width:205px;height:310px}
+.reward-wrap .math-card .card-symbol{font-size:4.3rem}
+.reward-wrap .math-card.spell-fire .card-symbol,
+.reward-wrap .math-card.spell-ice .card-symbol,
+.reward-wrap .math-card.spell-guard .card-symbol,
+.reward-wrap .math-card.spell-heal .card-symbol{width:125px;height:120px}
+.reward-wrap .math-card strong{font-size:1.05rem}
+.reward-bottom{border-top-color:#c4ad7b}
+.book-screen{
+  background-image:linear-gradient(145deg,rgba(15,21,46,.92),rgba(16,24,46,.94)),url("../assets/v2/bg-menu.avif");
+  background-size:cover;
+}
+.book-screen .codex-list article{
+  background:linear-gradient(145deg,#d8be8f,#ae8754);
+  border:2px solid #f6d7a1;
+  color:#241b2c;
+}
+.book-screen .codex-list article strong{color:#261d29}
+.book-screen .codex-list article p{color:#39283d}
+.book-screen .codex-stats>div,
+.book-screen .card-collection>div{
+  background:linear-gradient(150deg,#22274c,#101d37);
+  border-color:#b99664;
+}
+.book-screen .card-collection>div{color:#e7bd7e}
+.choice-panel{
+  background-image:linear-gradient(rgba(9,19,38,.86),rgba(7,19,34,.92)),url("../assets/v2/bg-map.avif");
+  background-size:cover;
+}
+.choice{background:linear-gradient(140deg,#1f3f48,#13243d);border:2px solid #aa845b}
+.choice:hover{border-color:#83fce2;box-shadow:0 0 25px #55edda67}
+.ending{background-image:linear-gradient(#0b1c32aa,#101b33df),url("../assets/v2/bg-map.avif");background-size:cover}
+.ending-emblem{filter:drop-shadow(0 0 14px #ffe9aa)}
+
+@media(max-width:1150px){
+ .menu-screen{grid-template-columns:1fr .9fr}
+ .menu-character .sprite.sprite-hero{min-height:400px}
+ .route-map{min-height:450px}
+ .reward-wrap .math-card{width:170px;height:270px}
+}
+@media(max-width:750px){
+ .topbar{min-height:74px}
+ .brand-icon{width:33px;height:33px}
+ .stats{gap:4px}
+ .stats span{padding:6px 10px;font-size:.75rem}
+ .menu-screen{display:flex;flex-direction:column-reverse;min-height:auto;padding:25px 20px 35px}
+ .menu-illustration{height:240px;min-height:240px;width:100%;flex:none}
+ .menu-character .sprite.sprite-hero{width:215px;height:245px;min-height:0}
+ .orbit-one{width:220px;height:220px;bottom:0}
+ .orbit-two{width:150px;height:150px;bottom:28px}
+ .menu-copy{width:100%}
+ .menu-logo{width:330px;max-width:100%;max-height:145px;margin:5px 0 -5px -7px}
+ .menu-copy h2{font-size:2.05rem}
+ .menu-copy>p{font-size:.9rem}
+ .menu-buttons{max-width:none}
+ .menu-metrics{gap:14px}
+ .menu-metrics strong{font-size:1.5rem}
+ .route-map{height:460px;min-height:0}
+ .map-node{width:43px;height:43px;border-width:1px}
+ .map-node.available{box-shadow:inset 0 0 0 2px #78ffdf84,0 0 0 4px #5eeec545,0 0 18px #5cffd6b8}
+ .battle-stage{height:345px}
+ .battle-title h2{font-size:1.8rem}
+ .fighters{height:220px}
+ .fighter{width:145px}
+ .fighter .sprite{width:140px;min-width:0;height:170px}
+ .fighter h3{font-size:1.08rem}
+ .fighter .progress{width:96%}
+ .versus{font-size:1.3rem}
+ .math-card{min-width:calc((100% - 21px)/4);width:calc((100% - 21px)/4);min-height:135px}
+ .math-card .card-symbol{font-size:2.1rem}
+ .math-card.spell-fire .card-symbol,.math-card.spell-ice .card-symbol,
+ .math-card.spell-guard .card-symbol,.math-card.spell-heal .card-symbol{width:55px;height:60px}
+ .cauldron-scene{min-height:295px}
+ .recipe-choice{min-height:45px}
+ .lab-controls,.event-controls{padding:12px}
+ .reward-wrap .math-card{width:135px;height:215px}
+ .reward-wrap .math-card.spell-fire .card-symbol,.reward-wrap .math-card.spell-ice .card-symbol,
+ .reward-wrap .math-card.spell-guard .card-symbol,.reward-wrap .math-card.spell-heal .card-symbol{width:85px;height:80px}
+}
+@media(prefers-reduced-motion:reduce){.menu-character .sprite{animation:none}.map-node.available{animation:none}}
