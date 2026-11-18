@@ -28,7 +28,7 @@ function frame(content,side=""){
     '<button class="brand" data-action="home"><span class="brand-icon">⚗</span><span><strong>GeMatch</strong><small>FORMULA QUEST</small></span></button>'+
     '<div class="breadcrumb">✧ &nbsp; '+(showRun?'Лесные руины · Забег '+(r.completed+1):"АЛХИМИЯ ФОРМУЛ")+'</div>'+
     (showRun?'<div class="stats"><span>❤️ '+r.hp+'/'+r.maxHp+'</span><span>◈ '+r.gold+'</span><span>⚡ '+r.energyMax+'</span><span>🃏 '+r.deck.length+'</span></div>':'')+
-    '<div class="header-actions">'+btn("book","📖 <span>Книга</span>","btn-subtle")+(showRun&&["map","book","shop","camp","lab","event","reward"].includes(state.screen)?btn("map","◈ <span>Карта</span>","btn-subtle"):"")+'</div></header>'+
+    '<div class="header-actions">'+btn("book","📖 <span>Книга</span>","btn-subtle")+(showRun&&(state.screen==="map"||(state.screen==="book"&&!r.currentNode))?btn("map","◈ <span>Карта</span>","btn-subtle"):"")+'</div></header>'+
     '<main class="layout '+(side?"with-side":"")+'">'+content+(side?'<aside class="sidebar">'+side+'</aside>':"")+'</main>'+
     (state.notice?'<div class="toast" role="status">'+state.notice+' <button data-action="dismiss" aria-label="Закрыть">×</button></div>':"")+
     '<footer class="footer"><span>✦ Уравнения становятся заклинаниями</span><span>Локальное сохранение · Версия 0.1</span></footer>';
@@ -245,7 +245,7 @@ function handleAction(action,element){
     case "home":state.screen="menu";state.notice="";break;
     case "new-run":state.run=createRun();state.combat=null;state.screen="map";state.notice="Забег начался. Выбери первый узел.";break;
     case "resume":state.screen=r?(c?"battle":"map"):"menu";break;
-    case "map":if(r&&state.screen!=="battle"){state.screen="map";state.notice="";}break;
+    case "map":if(r&&!r.currentNode){state.screen="map";state.notice="";}break;
     case "book":state.returnScreen=state.screen;state.screen="book";break;
     case "back":state.screen=state.returnScreen||"menu";break;
     case "node":beginNode(element.dataset.id);break;
