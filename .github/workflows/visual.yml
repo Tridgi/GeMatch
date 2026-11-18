@@ -1,0 +1,34 @@
+name: Visual browser smoke
+
+on:
+  push:
+    branches: ["feature/art-overhaul-v2"]
+  workflow_dispatch:
+
+jobs:
+  visual:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install browser runner
+        run: |
+          npm install --no-save playwright@1.58.2
+          npx playwright install --with-deps chromium
+      - name: Serve static site
+        run: |
+          python3 -m http.server 8765 > /tmp/gematch-http.log 2>&1 &
+          sleep 2
+          curl --fail http://127.0.0.1:8765/index.html > /dev/null
+      - name: Browser screenshots and actions
+        run: node tests/browser-visual.mjs
+      - name: Upload screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gematch-visual-screenshots
+          path: screenshots/
+          retention-days: 7
