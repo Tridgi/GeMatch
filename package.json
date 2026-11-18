@@ -1,0 +1,13 @@
+{
+  "name": "gematch-formula-quest",
+  "version": "0.1.0",
+  "description": "Offline-first mathematical alchemy roguelike",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "check": "node --check src/engine.js && node --check src/main.js && npm test",
+    "dev": "python3 -m http.server 5173"
+  },
+  "engines": {"node": ">=20"}
+}
