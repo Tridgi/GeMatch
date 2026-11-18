@@ -313,7 +313,7 @@ root.addEventListener("click",e=>{
   if(!node||node.disabled)return;
   handleAction(node.dataset.action,node);
 });
-root.addEventListener("input",e=>{
+root.addEventListener("change",e=>{
   const field=e.target.dataset.field;
   if(!field)return;
   const amount=Number(e.target.value);
