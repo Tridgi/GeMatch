@@ -34,7 +34,7 @@ function frame(content,side=""){
     '<footer class="footer"><span>✦ Уравнения становятся заклинаниями</span><span>Локальное сохранение · Версия 0.1</span></footer>';
 }
 function menu(){
-  return '<section class="menu-screen"><div class="menu-copy"><span class="ribbon">РОГАЛИК · АЛХИМИЯ · МАТЕМАТИКА</span><h1>Formula <em>Quest</em></h1><h2>Алхимия формул</h2><p>Создавай заклинания из чисел и операций. Вари зелья, обойди древние ловушки и победи Стража руин. Каждая удачная формула меняет ход приключения.</p><div class="menu-buttons">'+
+  return '<section class="menu-screen"><div class="menu-copy"><span class="ribbon">РОГАЛИК · АЛХИМИЯ · МАТЕМАТИКА</span><img class="menu-logo" src="./assets/v2/logo.avif" alt="GeMatch — Formula Quest" decoding="async"/><h1 class="sr-only">Formula Quest</h1><h2>Алхимия формул</h2><p>Создавай заклинания из чисел и операций. Вари зелья, обойди древние ловушки и победи Стража руин. Каждая удачная формула меняет ход приключения.</p><div class="menu-buttons">'+
   btn("new-run","⚗ Начать новый забег","btn-primary btn-large")+
   (run()?btn("resume","↗ Продолжить забег","btn-outline btn-large"):"")+
   btn("book","📖 Книга открытий","btn-outline btn-large")+
