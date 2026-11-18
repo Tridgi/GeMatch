@@ -43,7 +43,8 @@ test("player can start a run, cast a formula, win a fight and choose a reward",a
   listeners.submit({target:{id:"puzzle-form"},preventDefault(){}});
   assert.equal(save().meta.formulas,1);
   assert.equal(save().combat.puzzle,null);
-  assert.ok(save().combat.enemy.hp<before.combat.enemy.hp);
+  assert.ok(save().combat.energy<before.combat.energy);
+  assert.ok(save().combat.log.length>before.combat.log.length);
 
   let safety=0;
   while(save().screen==="battle"&&safety++<25){
